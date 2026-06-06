@@ -1,55 +1,46 @@
--- Main exploit script with advanced features
-local ScreenGui = Instance.new("ScreenGUI")
+local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
 local Frame = Instance.new("Frame")
 Frame.Size = UDim2.new(0, 350, 0, 200)
-Frame.Position = UDim2.new(0.5, -175, 0.9, -100)
-Frame.BackgroundColor3 = Color3.new(0.1, 0.1, 0.1)
+Frame.Position = UDim2.new(0.5, -175, 0.5, -100)
+Frame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
 Frame.BorderSizePixel = 0
 Frame.Parent = ScreenGui
 
 -- Title
 local Title = Instance.new("TextLabel")
-Title.Text = "Roblox Server Message Faker v2"
+Title.Text = "Roblox Server Message GUI"
 Title.Size = UDim2.new(1, 0, 0, 30)
+Title.BackgroundTransparency = 1
 Title.Font = Enum.Font.GothamBold
-Title.TextColor3 = Color3.new(1, 1, 1)
+Title.TextSize = 16
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 Title.Parent = Frame
 
--- Disguise selector
-local DisguiseLabel = Instance.new("TextLabel")
-DisguiseLabel.Text = "Sender:"
-DisguiseLabel.Size = UDim2.new(0.2, 0, 0, 20)
-DisguiseLabel.Position = UDim2.new(0.05, 0, 0.1, 0)
-DisguiseLabel.Parent = Frame
-
-local DisguiseComboBox = Instance.new("ComboBox")
-DisguiseComboBox.Size = UDim2.new(0.3, 0, 0, 25)
-DisguiseComboBox.Position = UDim2.new(0.35, 0, 0.1, 0)
-DisguiseComboBox.PlaceholderText = "Select disguise"
-DisguiseComboBox.AutoButtonColor = false
-DisguiseComboBox.Parent = Frame
-
--- Message input
+-- Message label
 local MessageLabel = Instance.new("TextLabel")
 MessageLabel.Text = "Message:"
-MessageLabel.Size = UDim2.new(0.2, 0, 0, 20)
-MessageLabel.Position = UDim2.new(0.05, 0, 0.3, 0)
+MessageLabel.Size = UDim2.new(0, 80, 0, 20)
+MessageLabel.Position = UDim2.new(0, 10, 0, 50)
+MessageLabel.BackgroundTransparency = 1
+MessageLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 MessageLabel.Parent = Frame
 
+-- Message input
 local MessageInput = Instance.new("TextBox")
-MessageInput.Size = UDim2.new(0.8, 0, 0, 25)
-MessageInput.Position = UDim2.new(0.05, 0, 0.35, 0)
-MessageInput.Text = "yoo im gay"
+MessageInput.Size = UDim2.new(0, 250, 0, 25)
+MessageInput.Position = UDim2.new(0, 90, 0, 50)
+MessageInput.Text = "Hello world"
 MessageInput.Parent = Frame
 
--- Payload input
-local PayloadLabel = Instance.new("TextLabel")
-PayloadLabel.Text = "Payload:"
-PayloadLabel.Size = UDim2.new(0.2, 0, 0, 20)
-PayloadLabel.Position = UDim2.new(0.05, 0, 0.5, 0)
-PayloadLabel.Parent = Frame
+-- Button
+local SendButton = Instance.new("TextButton")
+SendButton.Size = UDim2.new(0, 120, 0, 30)
+SendButton.Position = UDim2.new(0.5, -60, 0, 130)
+SendButton.Text = "Send"
+SendButton.Parent = Frame
 
-local PayloadInput = Instance.new("TextBox")
-PayloadInput.Size = UDim2.new(0.8, 0, 0, 25)
-Payload
+SendButton.MouseButton1Click:Connect(function()
+    print("Message:", MessageInput.Text)
+end)
